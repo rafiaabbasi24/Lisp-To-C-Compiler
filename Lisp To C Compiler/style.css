@@ -1,0 +1,239 @@
+* {
+  box-sizing: border-box;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Fira Mono', monospace;
+  background: #121212;
+  color: #eee;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.light {
+  background: #f5f5f5;
+  color: #111;
+}
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+header h1 {
+  font-size: 3rem;
+  color: #00f6ff;
+  margin-bottom: 10px;
+}
+header p {
+  font-size: 1.2rem;
+  color: #aaa;
+}
+
+textarea#input {
+  width: 100%;
+  min-height: 140px;
+  background: #1e1e1e;
+  color: #fff;
+  font-size: 1.1rem;
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #0ff2;
+  transition: all 0.3s ease;
+}
+textarea#input:focus {
+  box-shadow: 0 0 20px #0ff;
+  outline: none;
+}
+
+button {
+  margin: 10px 8px 20px 0;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #00f6ff, #00c6ff);
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #000;
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
+  transition: transform 0.2s, background 0.3s;
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px #00f6ff;
+}
+
+button:active {
+  transform: scale(0.97);
+  animation: pulse 0.2s;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 8px #00f6ffaa; }
+  50% { transform: scale(0.95); box-shadow: 0 0 16px #00f6ffcc; }
+  100% { transform: scale(1); box-shadow: 0 0 8px #00f6ffaa; }
+}
+
+button#toggleTheme {
+  float: right;
+  margin-top: -60px;
+}
+
+.control-group {
+  margin-top: 20px;
+}
+
+h3 {
+  margin-top: 40px;
+  font-size: 1.5rem;
+  color: #0ff;
+  border-bottom: 1px solid #0ff6;
+}
+
+pre {
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-x: auto;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  font-size: 0.95rem;
+}
+pre.show {
+  opacity: 1;
+}
+pre code span {
+  font-weight: bold;
+}
+
+body.light textarea,
+body.light pre {
+  background: #eee;
+  color: #000;
+}
+body.light button {
+  background: linear-gradient(135deg, #0088cc, #005577);
+  color: white;
+}
+body.light h3,
+body.light h1 {
+  color: #0088cc;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+header h1 {
+  font-size: 2.5rem;
+  color: #00f6ff;
+  margin: 0;
+}
+header p {
+  font-size: 1rem;
+  color: #aaa;
+  margin-top: 6px;
+}
+
+.toolbar {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.input-section {
+  margin-top: 10px;
+}
+.input-section label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color:  #aaa;;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
+.controls button {
+  flex: 1 1 120px;
+  min-width: 100px;
+}
+
+.live-toggle {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.output-section > div {
+  margin-bottom: 30px;
+}
+.output-section h3 {
+  font-size: 1.3rem;
+}
+
+@media (max-width: 600px) {
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.tree ul {
+  list-style-type: none;
+  margin-left: 20px;
+  padding-left: 10px;
+  border-left: 2px solid #0ff5;
+  animation: fadeIn 0.5s ease;
+}
+.tree li {
+  margin: 6px 0;
+  color: #0ff;
+  position: relative;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+.tree li::before {
+  content: "• ";
+  color: #0ff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+body.light .tree li {
+  color: #0088cc;
+}
+
+pre.show {
+  animation: fadeGlow 0.5s ease forwards;
+}
+
+@keyframes fadeGlow {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+    box-shadow: none;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 0 12px #00f6ff55;
+  }
+}
+
+pre, #astTree {
+  transition: all 0.4s ease;
+}
+

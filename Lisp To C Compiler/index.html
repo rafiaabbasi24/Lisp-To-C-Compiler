@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LISP to C Compiler</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+  <header>
+    <h1>LISP to C Compiler</h1>
+    <p>Convert simple LISP expressions into clean C code</p>
+  </header>
+
+  <div class="toolbar">
+    <button id="toggleTheme" title="Toggle Theme">
+      <span id="themeIcon">🌞</span>
+    </button>
+  </div>
+
+  <section class="input-section">
+    <label for="input">Enter LISP expression:</label>
+    <textarea id="input" spellcheck="false">(add 2 (subtract 4 1))</textarea>
+  </section>
+
+  <section class="controls">
+    <button onclick="showTokens()">Tokens</button>
+    <button onclick="showAST()">AST</button>
+    <button onclick="showIR()">IR</button>
+    <button onclick="showCCode()">C Code</button>
+    <button onclick="showDebug()">Debug</button>
+    <button onclick="downloadCCode()">💾 Download</button>
+  </section>
+
+  <div class="live-toggle">
+    <label><input type="checkbox" id="liveCompile" checked /> Live Compile Output</label>
+  </div>
+
+  <section class="output-section">
+    <div>
+      <h3>Tokens</h3>
+      <pre id="tokens"></pre>
+    </div>
+    <div>
+      <h3>AST</h3>
+<div id="astTree" class="tree"></div>
+
+    </div>
+    <div>
+      <h3>Intermediate Representation (IR)</h3>
+      <pre id="ir"></pre>
+    </div>
+    <div>
+      <h3>Generated C Code</h3>
+      <pre id="cOutput"></pre>
+    </div>
+    <div>
+      <h3>Debug Logs</h3>
+      <pre id="debug"></pre>
+    </div>
+  </section>
+</div>
+
+ <script src="script.js"></script>
+</body>
+</html>
